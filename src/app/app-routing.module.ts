@@ -3,7 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: () => import('./main/main.module').then(m => m.MainModule)},
-  {path: 'main', redirectTo: ''}
+  {path: 'main', redirectTo: ''},
+  { path: 'shapes', loadChildren: () => import('./shapes/shapes.module').then(m => m.ShapesModule) },
+  { path: 'compare', loadChildren: () => import('./compare/compare.module').then(m => m.CompareModule) },
+  { path: 'coins', loadChildren: () => import('./coins/coins.module').then(m => m.CoinsModule) }
 ];
 
 @NgModule({
