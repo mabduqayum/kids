@@ -2,9 +2,30 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: url("../../../src/assets/shapes/2d3dbg.png");
+  background-image: url("../../../src/assets/shapes/bg2d3d.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgba(106, 63, 46, 0.35);
   background-size: contain;
+}
+
+.polygon {
+  display: flex;
+  margin-top: 26vh;
+  margin-inline: calc(calc(100vw - 956px) / 2);
+  height: 100%;
+
+  .d2 {
+    background-color: #fff;
+    width: 40%;
+    height: 40%;
+    clip-path: polygon(26.13% -2.01%, 99.13% 0.58%, 84.21% 97.12%, -5.36% 102.54%);
+  }
+
+  .d3 {
+    background-color: #fff;
+    width: 40%;
+    height: 40%;
+    clip-path: polygon(26.13% -2.01%, 99.13% 0.58%, 84.21% 97.12%, -5.36% 102.54%);
+  }
 }
