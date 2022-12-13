@@ -1,0 +1,10 @@
+<div class="polygon">
+  <div #d2 class="d2"></div>
+  <div #d3 class="d3"></div>
+</div>
+
+<div class="shapes">
+  <img *ngFor="let shape of shapes"
+       src="assets/shapes/{{shape.name}}.png"
+       loading="lazy" alt="" width="80px"
+  ></div>

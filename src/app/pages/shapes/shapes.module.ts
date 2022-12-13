@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ShapesRoutingModule } from './shapes-routing.module';
 import { ShapesComponent } from './shapes.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ShapesComponent } from './shapes.component';
   ],
   imports: [
     CommonModule,
-    ShapesRoutingModule
+    ShapesRoutingModule,
+    DragDropModule,
   ]
 })
 export class ShapesModule { }
