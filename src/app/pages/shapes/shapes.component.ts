@@ -47,10 +47,7 @@ export class ShapesComponent implements OnInit {
       );
     }
     if (this.shapes.length === 0) {
-      if (this.checkAnswers()) {
-        this.openDialog();
-      } else {
-      }
+      this.openDialog(this.checkAnswers());
     }
   }
 
@@ -67,8 +64,8 @@ export class ShapesComponent implements OnInit {
     return checkAll(this.polygon, 2) && checkAll(this.polyhedron, 3);
   }
 
-  private openDialog(): void {
-    const dialogRef = this.dialog.open(ShapesResultComponent);
+  private openDialog(data: boolean): void {
+    const dialogRef = this.dialog.open(ShapesResultComponent, {data: data, width: '600px'});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'playAgain') {
@@ -103,7 +100,7 @@ export class ShapesComponent implements OnInit {
   }
 
   private goToMenu() {
-    this.router.navigate(['/'], );
+    this.router.navigate(['/'],);
   }
 }
 

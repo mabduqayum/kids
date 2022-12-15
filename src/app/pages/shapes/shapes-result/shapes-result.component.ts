@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-shapes-result',
@@ -6,8 +7,6 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./shapes-result.component.scss']
 })
 export class ShapesResultComponent {
-  @Input() allCorrect: boolean = true;
-
-  constructor() {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: boolean) {
   }
 }

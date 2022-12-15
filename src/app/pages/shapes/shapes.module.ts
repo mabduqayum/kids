@@ -8,6 +8,7 @@ import { ShapesResultComponent } from './shapes-result/shapes-result.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MenuButtonComponent} from "../../components/menu-button/menu-button.component";
 
 
 @NgModule({
@@ -15,13 +16,14 @@ import {MatDialogModule} from "@angular/material/dialog";
     ShapesComponent,
     ShapesResultComponent
   ],
-    imports: [
-        CommonModule,
-        ShapesRoutingModule,
-        DragDropModule,
-        MatButtonModule,
-        MatIconModule,
-        MatDialogModule,
-    ]
+  imports: [
+    CommonModule,
+    ShapesRoutingModule,
+    DragDropModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MenuButtonComponent,
+  ]
 })
 export class ShapesModule { }

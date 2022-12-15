@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CompareRoutingModule } from './compare-routing.module';
 import { CompareComponent } from './compare.component';
+import {MenuButtonComponent} from "../../components/menu-button/menu-button.component";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CompareComponent } from './compare.component';
   ],
   imports: [
     CommonModule,
-    CompareRoutingModule
+    CompareRoutingModule,
+    MenuButtonComponent
   ]
 })
 export class CompareModule { }

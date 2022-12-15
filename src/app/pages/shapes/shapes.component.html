@@ -1,6 +1,9 @@
+<app-menu-button></app-menu-button>
+
 <main cdkDropListGroup>
   <div class="polygon">
     <div cdkDropList
+         cdkDropListSortingDisabled
          class="d2"
          [cdkDropListData]="polygon"
          (cdkDropListDropped)="drop($event)">
@@ -10,6 +13,7 @@
            loading="lazy" alt="" width="80px" height="80px">
     </div>
     <div cdkDropList
+         cdkDropListSortingDisabled
          class="d3"
          [cdkDropListData]="polyhedron"
          (cdkDropListDropped)="drop($event)">
@@ -21,6 +25,7 @@
   </div>
 
   <div cdkDropList
+       cdkDropListOrientation="horizontal"
        [cdkDropListData]="shapes"
        (cdkDropListDropped)="drop($event)"
        class="shapes">
