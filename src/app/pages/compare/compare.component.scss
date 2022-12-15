@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #CCDDFF;
+}
+
+h2 {
+  background-color: #BB99DD;
+  width: 600px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 2.5rem;
+  color: #401940;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  column-gap: 4rem;
+  margin: 2rem;
+
+  aside {
+
+    button {
+      padding: 2rem;
+      font-size: 8rem;
+      border-radius: 8px;
+      background-color: #AADDBB;
+      color: #204020;
+      cursor: pointer;
+    }
+  }
+
+  section {
+    img {
+      width: 400px;
+      object-fit: contain;
+    }
+  }
+}
