@@ -1,10 +1,32 @@
-<div class="polygon">
-  <div #d2 class="d2"></div>
-  <div #d3 class="d3"></div>
-</div>
+<main cdkDropListGroup>
+  <div class="polygon">
+    <div cdkDropList
+         class="d2"
+         [cdkDropListData]="polygon"
+         (cdkDropListDropped)="drop($event)">
+      <img *ngFor="let shape of polygon"
+           src="assets/shapes/{{shape.name}}.png"
+           cdkDrag
+           loading="lazy" alt="" width="80px" height="80px">
+    </div>
+    <div cdkDropList
+         class="d3"
+         [cdkDropListData]="polyhedron"
+         (cdkDropListDropped)="drop($event)">
+      <img *ngFor="let shape of polyhedron"
+           src="assets/shapes/{{shape.name}}.png"
+           cdkDrag
+           loading="lazy" alt="" width="80px" height="80px">
+    </div>
+  </div>
 
-<div class="shapes">
-  <img *ngFor="let shape of shapes"
-       src="assets/shapes/{{shape.name}}.png"
-       loading="lazy" alt="" width="80px"
-  ></div>
+  <div cdkDropList
+       [cdkDropListData]="shapes"
+       (cdkDropListDropped)="drop($event)"
+       class="shapes">
+    <img *ngFor="let shape of shapes"
+         src="assets/shapes/{{shape.name}}.png"
+         cdkDrag
+         loading="lazy" alt="" width="80px" height="80px">
+  </div>
+</main>

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Shape} from "../../interfaces/shape";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+import {MatDialog} from '@angular/material/dialog';
+import {ShapesResultComponent} from "./shapes-result/shapes-result.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-shapes',
@@ -9,15 +12,13 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag
 })
 export class ShapesComponent implements OnInit {
   shapes: Shape[];
-  polygon1: Shape[];
-  polygon2: Shape[];
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  polygon: Shape[] = [];
+  polyhedron: Shape[] = [];
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
-  constructor() {
+  constructor(public dialog: MatDialog,
+              public router: Router) {
     this.shapes = [
-      {dimension: 2, name: 'sphere'},
+      {dimension: 2, name: 'circle'},
       {dimension: 2, name: 'triangle'},
       {dimension: 2, name: 'square'},
       {dimension: 2, name: 'rectangle'},
@@ -28,16 +29,13 @@ export class ShapesComponent implements OnInit {
       {dimension: 3, name: 'cube'},
       {dimension: 3, name: 'prism'},
     ]
-    this.polygon1 = []
-    this.polygon2 = []
-    shuffle(this.shapes);
+    this.shuffle(this.shapes);
   }
 
   ngOnInit(): void {
   }
 
-
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Shape[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -48,24 +46,66 @@ export class ShapesComponent implements OnInit {
         event.currentIndex,
       );
     }
+    if (this.shapes.length === 0) {
+      if (this.checkAnswers()) {
+        this.openDialog();
+      } else {
+      }
+    }
+  }
+
+  private checkAnswers(): boolean {
+    function checkAll(shapes: Shape[], dimension: number): boolean {
+      for (const shape of shapes) {
+        if (shape.dimension !== dimension) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    return checkAll(this.polygon, 2) && checkAll(this.polyhedron, 3);
+  }
+
+  private openDialog(): void {
+    const dialogRef = this.dialog.open(ShapesResultComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'playAgain') {
+        this.playAgain();
+      } else if (result === 'goToMenu') {
+        this.goToMenu();
+      }
+    });
+  }
+
+  private shuffle(array: any[]): any[] {
+    let currentIndex = array.length;
+    let randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+  }
+
+
+  private playAgain() {
+    window.location.reload();
+  }
+
+  private goToMenu() {
+    this.router.navigate(['/'], );
   }
 }
 
 
-function shuffle(array: any[]) {
-  let currentIndex = array.length;
-  let randomIndex;
 
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-  }
-
-  return array;
-}

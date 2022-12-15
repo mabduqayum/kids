@@ -7,10 +7,11 @@
   row-gap: 3rem;
 }
 
+button {
+  padding: 2rem;
+  width: 400px;
+}
 
-a {
-  padding: 2rem 1rem;
-  text-align: center;
-  width: 20rem;
-  background-color: #bb2c2c;
+::ng-deep .mdc-button__label {
+  font-size: 1.5rem;
 }
