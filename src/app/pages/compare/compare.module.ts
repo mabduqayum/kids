@@ -4,16 +4,24 @@ import { CommonModule } from '@angular/common';
 import { CompareRoutingModule } from './compare-routing.module';
 import { CompareComponent } from './compare.component';
 import {MenuButtonComponent} from "../../components/menu-button/menu-button.component";
+import { CompareResultComponent } from './compare-result/compare-result.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [
-    CompareComponent
+    CompareComponent,
+    CompareResultComponent
   ],
   imports: [
     CommonModule,
     CompareRoutingModule,
-    MenuButtonComponent
+    MenuButtonComponent,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class CompareModule { }

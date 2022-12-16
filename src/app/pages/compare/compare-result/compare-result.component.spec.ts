@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompareComponent } from './compare.component';
+import { CompareResultComponent } from './compare-result.component';
 
-describe('CompareComponent', () => {
-  let component: CompareComponent;
-  let fixture: ComponentFixture<CompareComponent>;
+describe('CompareResultComponent', () => {
+  let component: CompareResultComponent;
+  let fixture: ComponentFixture<CompareResultComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompareComponent ]
+      declarations: [ CompareResultComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CompareComponent);
+    fixture = TestBed.createComponent(CompareResultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
