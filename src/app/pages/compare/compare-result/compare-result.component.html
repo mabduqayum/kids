@@ -1,11 +1,5 @@
-<ng-container *ngIf="data; else wrongAns">
-  <h1>{{data | percent}}</h1>
-  <p>{{message}}</p>
-</ng-container>
-<ng-template #wrongAns>
-  <h1>Nope!!!</h1>
-  <p>You got at least one wrong.</p>
-</ng-template>
+<h1>{{data | percent}}</h1>
+<p>{{message}}</p>
 <mat-dialog-actions>
   <button mat-stroked-button color="primary" mat-dialog-close='playAgain'>
     <mat-icon>replay</mat-icon>

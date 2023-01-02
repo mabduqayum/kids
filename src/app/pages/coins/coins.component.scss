@@ -1,0 +1,37 @@
+:host {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  position: relative;
+  background-image: url("../../../../src/assets/coins/bg-full.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 1440px;
+  height: 100vh;
+
+  > img {
+    position: absolute;
+
+    &.fluffy {
+      top: 37%;
+      left: 31.2%;
+    }
+    &.dog {
+      top: 37%;
+      left: 52.5%;
+    }
+    &.parrot {
+      top: 62%;
+      left: 22.4%;
+    }
+    &.cat {
+      top: 53%;
+      left: 45%;
+    }
+  }
+}

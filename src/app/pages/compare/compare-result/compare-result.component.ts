@@ -11,7 +11,7 @@ export class CompareResultComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: number,
               private dialogRef: MatDialogRef<CompareResultComponent>) {
-    this.message = this.getMessage(data);
+    this.updateMessage(data);
   }
 
   @HostListener('window:keyup.esc')
@@ -19,17 +19,17 @@ export class CompareResultComponent {
     this.dialogRef.close();
   }
 
-  getMessage(points: number): string {
+  updateMessage(points: number) {
     if (points < .5) {
-      return 'Try next time';
+      this.message = 'Try next time';
     } else if (points < .65) {
-      return 'Good'
+      this.message = 'Good';
     } else if (points < .75) {
-      return 'Well done'
+      this.message = 'Well done';
     } else if (points < 1) {
-      return 'Excellent'
+      this.message = 'Excellent';
     } else {
-      return 'Perfect'
+      this.message = 'Perfect';
     }
   }
 }
