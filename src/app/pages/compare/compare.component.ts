@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Compare} from "../../interfaces/compare";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -10,47 +10,100 @@ import {CompareResultComponent} from "./compare-result/compare-result.component"
   styleUrls: ['./compare.component.scss']
 })
 export class CompareComponent implements OnInit {
-  compareQuestions: Compare[] = [];
-  currentIndex = 0;
+  currentQuestion?: Compare;
+
+  private questions: Compare[] = [];
+  private currentIndex = 0;
   private points = 0;
+  private isQuizCompleted = false;
 
   constructor(public dialog: MatDialog,
               public router: Router) {
-    for (let i = 0; i < 4; i++) {
-      this.compareQuestions.push({n1: this.randInt(1, 9), n2: this.randInt(1, 9)});
-    }
-    for (let i = 0; i < 3; i++) {
-      this.compareQuestions.push({n1: this.randInt(1, 20), n2: this.randInt(1, 20)});
-    }
-    for (let i = 0; i < 3; i++) {
-      this.compareQuestions.push({n1: this.randInt(1, 100), n2: this.randInt(1, 100)});
-    }
-    console.log(this.compareQuestions);
-    console.log(this.currentIndex);
   }
 
   ngOnInit(): void {
+    this.generateQuestions();
+    this.setCurrentQuestion();
   }
 
-  onClick(): void {
-    if (this.currentIndex === this.compareQuestions.length - 1) {
-      this.openDialog(true);
+  @HostListener('window:keydown.ArrowLeft')
+  onLeftClick(): void {
+    if (this.isQuizCompleted) {
       return;
     }
+    this.onClick();
+  }
+
+  @HostListener('window:keydown.ArrowRight')
+  onRightClick(): void {
+    if (this.isQuizCompleted) {
+      return;
+    }
+    this.onClick(true);
+  }
+
+  private nextQuestion(): void {
     this.currentIndex++;
+    this.setCurrentQuestion();
   }
 
-  private goToMenu() {
-    this.router.navigate(['/'],);
+  private setCurrentQuestion(): void {
+    this.currentQuestion = this.questions[this.currentIndex];
   }
 
-  private playAgain() {
+  private onClick(isRightClicked?: boolean): void {
+    this.currentQuestion!.submittedAnswer = isRightClicked ? 1 : 0;
+    if (this.currentQuestion!.left < this.currentQuestion!.right) {
+      this.currentQuestion!.actualAnswer = 0;
+    } else if (this.currentQuestion!.left > this.currentQuestion!.right) {
+      this.currentQuestion!.actualAnswer = 1;
+    } else {
+      this.currentQuestion!.actualAnswer = this.currentQuestion!.submittedAnswer;
+    }
+    if (this.currentIndex === this.questions.length - 1) {
+      this.completeQuiz();
+      return;
+    }
+    this.nextQuestion();
+  }
+
+  private generateQuestions(): void {
+    for (let i = 0; i < 4; i++) {
+      this.questions.push({left: this.randInt(1, 9), right: this.randInt(1, 9)});
+    }
+    for (let i = 0; i < 3; i++) {
+      this.questions.push({left: this.randInt(1, 20), right: this.randInt(1, 20)});
+    }
+    for (let i = 0; i < 3; i++) {
+      this.questions.push({left: this.randInt(1, 100), right: this.randInt(1, 99)});
+    }
+  }
+
+  private goToMenu(): void {
+    this.router.navigate(['/'],).then(() => {
+    });
+  }
+
+  private playAgain(): void {
     window.location.reload();
   }
 
-  private openDialog(data: boolean): void {
+  private completeQuiz(): void {
+    this.isQuizCompleted = true;
+    const lenQuestions = this.questions.length
+    let correctCount = 0;
+    for (const question of this.questions) {
+      if (question.actualAnswer === question.submittedAnswer) {
+        correctCount++;
+      }
+    }
+    this.points = correctCount / lenQuestions;
+    this.openDialog();
+  }
+
+  private openDialog(): void {
     const dialogRef = this.dialog.open(CompareResultComponent,
-      {data: data, width: '600px', disableClose: true});
+      {data: this.points, width: '600px', disableClose: true});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'playAgain') {
@@ -61,7 +114,7 @@ export class CompareComponent implements OnInit {
     });
   }
 
-  private randInt(start: number, end: number) {
+  private randInt(start: number, end: number): number {
     return Math.floor(Math.random() * end + start);
   }
 }

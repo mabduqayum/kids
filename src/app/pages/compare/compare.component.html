@@ -5,13 +5,14 @@
 </header>
 <main>
   <aside>
-    <button (click)="onClick()">
-      {{compareQuestions[currentIndex].n1}}</button>
+    <button (click)="onLeftClick()">
+      {{currentQuestion?.left}}</button>
   </aside>
   <section>
     <img src="assets/compare/bear.svg" alt="">
   </section>
   <aside>
-    <button>{{compareQuestions[currentIndex].n2}}</button>
+    <button (click)="onRightClick()">
+      {{currentQuestion?.right}}</button>
   </aside>
 </main>

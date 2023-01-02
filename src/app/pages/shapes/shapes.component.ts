@@ -65,7 +65,8 @@ export class ShapesComponent implements OnInit {
   }
 
   private openDialog(data: boolean): void {
-    const dialogRef = this.dialog.open(ShapesResultComponent, {data: data, width: '600px'});
+    const dialogRef = this.dialog.open(ShapesResultComponent,
+      {data: data, width: '600px', disableClose: true});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'playAgain') {
@@ -100,7 +101,7 @@ export class ShapesComponent implements OnInit {
   }
 
   private goToMenu() {
-    this.router.navigate(['/'],);
+    this.router.navigate(['/'],).then();
   }
 }
 

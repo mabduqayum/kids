@@ -1,6 +1,6 @@
 <ng-container *ngIf="data; else wrongAns">
-  <h1>You did it!</h1>
-  <p>You got it right.</p>
+  <h1>{{data | percent}}</h1>
+  <p>{{message}}</p>
 </ng-container>
 <ng-template #wrongAns>
   <h1>Nope!!!</h1>

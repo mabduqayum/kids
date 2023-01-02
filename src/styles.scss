@@ -34,28 +34,12 @@ button {
   border-style: none;
 }
 
-
-hr.divider {
-  border: 0;
-  border-top: 1px solid var(--secondary-text);
-  width: 100%;
-  margin-block: 1rem;
-}
-
 a,
 a:hover,
 a:focus,
 a:active {
   text-decoration: none;
   color: inherit;
-}
-
-a.link-shell {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 :target {
