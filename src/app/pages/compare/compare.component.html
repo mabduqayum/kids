@@ -5,14 +5,14 @@
 </header>
 <main>
   <aside>
-    <button (click)="onLeftClick()">
+    <button #left tabindex="0" (click)="onLeftClick()">
       {{currentQuestion?.left}}</button>
   </aside>
   <section>
     <img src="assets/compare/bear.svg" alt="">
   </section>
   <aside>
-    <button (click)="onRightClick()">
+    <button #right tabindex="0" (click)="onRightClick()">
       {{currentQuestion?.right}}</button>
   </aside>
 </main>

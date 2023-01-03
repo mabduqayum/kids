@@ -1,8 +1,9 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Compare} from "../../interfaces/compare";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {CompareResultComponent} from "./compare-result/compare-result.component";
+import {Subscription, timeout, timer} from "rxjs";
 
 @Component({
   selector: 'app-compare',
@@ -16,6 +17,10 @@ export class CompareComponent implements OnInit {
   private currentIndex = 0;
   private points = 0;
   private isQuizCompleted = false;
+  private timerSub?: Subscription;
+
+  @ViewChild('left') leftBtn!: ElementRef;
+  @ViewChild('right') rightBtn!: ElementRef;
 
   constructor(public dialog: MatDialog,
               public router: Router) {
@@ -31,6 +36,7 @@ export class CompareComponent implements OnInit {
     if (this.isQuizCompleted) {
       return;
     }
+    this.setTimedFocus(this.leftBtn);
     this.onClick();
   }
 
@@ -39,7 +45,16 @@ export class CompareComponent implements OnInit {
     if (this.isQuizCompleted) {
       return;
     }
+    this.setTimedFocus(this.rightBtn);
     this.onClick(true);
+  }
+
+  private setTimedFocus(el: ElementRef): void {
+    if (this.timerSub) {
+      this.timerSub.unsubscribe();
+    }
+    el.nativeElement.focus();
+    this.timerSub = timer(250).subscribe(() => el.nativeElement.blur());
   }
 
   private nextQuestion(): void {
@@ -115,6 +130,6 @@ export class CompareComponent implements OnInit {
   }
 
   private randInt(start: number, end: number): number {
-    return Math.floor(Math.random() * end + start);
+    return Math.floor(Math.random() * (end - start) + start);
   }
 }

@@ -7,11 +7,19 @@
   row-gap: 3rem;
 }
 
-button {
+a > button {
   padding: 2rem;
   width: 400px;
 }
 
 ::ng-deep .mdc-button__label {
   font-size: 1.5rem;
+}
+
+.langs {
+  z-index: 2;
+  position: fixed;
+  margin: 1rem;
+  top: 0;
+  right: 0;
 }

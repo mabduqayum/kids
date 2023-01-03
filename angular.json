@@ -4,6 +4,10 @@
   "newProjectRoot": "projects",
   "projects": {
     "kids": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {"ru-RU": "src/assets/locales/messages.ru.json"}
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {

@@ -36,8 +36,13 @@ main {
       cursor: pointer;
       transition: all .3s;
 
-      &:hover {
+      //&:hover,
+      &:focus {
         filter: drop-shadow(0px 10px 4px #506657) hue-rotate(15deg);
+      }
+
+      &:focus-visible {
+        outline: none;
       }
     }
   }

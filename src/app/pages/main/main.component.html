@@ -1,20 +1,24 @@
-<a routerLink="shapes">
+<a class="shapes" routerLink="shapes">
   <button mat-raised-button color="primary">
     <mat-icon>interests</mat-icon>
-    2d 3d shape sorting
+    <ng-container i18n>2d 3d shape sorting</ng-container>
   </button>
 </a>
 
-<a routerLink="compare">
+<a class="compare" routerLink="compare">
   <button mat-raised-button color="primary">
     <mat-icon>balance</mat-icon>
     number comparison
   </button>
 </a>
 
-<a routerLink="coins">
+<a class="coins" routerLink="coins">
   <button mat-raised-button color="primary">
     <mat-icon>monetization_on</mat-icon>
     coins game
   </button>
 </a>
+
+<button class="langs" mat-fab color="accent" aria-label="Example icon button with a home icon">
+  <mat-icon>g_translate</mat-icon>
+</button>
