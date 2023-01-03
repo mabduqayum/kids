@@ -54,7 +54,7 @@ export class CompareComponent implements OnInit {
       this.timerSub.unsubscribe();
     }
     el.nativeElement.focus();
-    this.timerSub = timer(250).subscribe(() => el.nativeElement.blur());
+    this.timerSub = timer(200).subscribe(() => el.nativeElement.blur());
   }
 
   private nextQuestion(): void {
