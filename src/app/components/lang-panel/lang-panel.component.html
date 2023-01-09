@@ -1,0 +1,14 @@
+<button [matMenuTriggerFor]="menu"
+        class="langs"
+        mat-fab color="accent"
+        aria-label="Example icon button with a home icon">
+  <mat-icon>g_translate</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button *ngFor="let language of languages"
+          mat-menu-item
+          [class.activeMenuItem]="activeLanguage===language"
+          (click)="changeLang(language)"
+  >{{language}}</button>
+</mat-menu>

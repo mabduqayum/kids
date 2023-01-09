@@ -3,7 +3,8 @@ import {Compare} from "../../interfaces/compare";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
 import {CompareResultComponent} from "./compare-result/compare-result.component";
-import {Subscription, timeout, timer} from "rxjs";
+import {Subscription, timer} from "rxjs";
+import {cleanSubscription} from "../../utils/helper";
 
 @Component({
   selector: 'app-compare',
@@ -54,7 +55,8 @@ export class CompareComponent implements OnInit {
       this.timerSub.unsubscribe();
     }
     el.nativeElement.focus();
-    this.timerSub = timer(250).subscribe(() => el.nativeElement.blur());
+    cleanSubscription(this.timerSub);
+    this.timerSub = timer(200).subscribe(() => el.nativeElement.blur());
   }
 
   private nextQuestion(): void {
