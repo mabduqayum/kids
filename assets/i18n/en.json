@@ -1,6 +1,8 @@
 {
-  "HOME": {
+  "MAIN": {
     "TITLE": "Kids",
-    "SELECT": "Change language"
+    "SHAPE_SORTING": "Shape sorting of 2d 3d",
+    "NUMBER_COMPARISON": "Number comparison",
+    "COINS_GAME": "Coins game"
   }
 }
