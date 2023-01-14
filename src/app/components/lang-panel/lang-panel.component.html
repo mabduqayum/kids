@@ -8,7 +8,7 @@
 <mat-menu #menu="matMenu">
   <button *ngFor="let language of languages"
           mat-menu-item
-          [class.activeMenuItem]="activeLanguage===language"
-          (click)="changeLang(language)"
-  >{{language}}</button>
+          [class.activeMenuItem]="activeLanguage === language.languageCode"
+          (click)="changeLang(language.languageCode)"
+  >{{language.languageName}}</button>
 </mat-menu>
