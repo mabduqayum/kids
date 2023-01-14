@@ -1,8 +1,30 @@
 {
-  "MAIN": {
-    "TITLE": "Кӯдакон",
-    "SHAPE_SORTING": "Ҷойгиркунии шакли 2d 3d",
-    "NUMBER_COMPARISON": "Муқоисаи рақам",
-    "COINS_GAME": "Бозии танга"
+  "main": {
+    "title": "Кӯдакон",
+    "shape_sorting": "Ҷойгиркунии шаклҳо",
+    "number_comparison": "Муқоисаи рақамҳо",
+    "coins_game": "Бозии тангаҳо"
+  },
+  "shapes": {
+    "right": {
+      "title": "Аҳсан!",
+      "paragraph": "Шумо дуруст фаҳмидед."
+    },
+    "wrong": {
+      "title": "Не!!!",
+      "paragraph": "Шумо ақаллан як хато кардед."
+    },
+    "play_again": "Аз нав",
+    "go_to_menu": "Ба Меню"
+  },
+  "compare": {
+    "compare_numbers": "Рақамҳоро муқоиса кунед",
+    "next_time": "Кӯшиш кунед",
+    "good": "Хуб",
+    "well_done": "Офарин",
+    "excellent": "Аъло",
+    "perfect": "Комил!",
+    "play_again": "Аз нав",
+    "go_to_menu": "Ба Меню"
   }
 }

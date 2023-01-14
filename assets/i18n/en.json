@@ -1,8 +1,30 @@
 {
-  "MAIN": {
-    "TITLE": "Kids",
-    "SHAPE_SORTING": "Shape sorting of 2d 3d",
-    "NUMBER_COMPARISON": "Number comparison",
-    "COINS_GAME": "Coins game"
+  "main": {
+    "title": "Kids",
+    "shape_sorting": "Shape sorting of 2d 3d",
+    "number_comparison": "Number comparison",
+    "coins_game": "Coins game"
+  },
+  "shapes": {
+    "right": {
+      "title": "You did it!",
+      "paragraph": "You got it right."
+    },
+    "wrong": {
+      "title": "Nope!!!",
+      "paragraph": "You got at least one wrong."
+    },
+    "play_again": "Play Again",
+    "go_to_menu": "Go to Menu"
+  },
+  "compare": {
+    "compare_numbers": "Compare numbers",
+    "next_time": "Try next time",
+    "good": "Good",
+    "well_done": "Well done",
+    "excellent": "Excellent",
+    "perfect": "Perfect!",
+    "play_again": "Play Again",
+    "go_to_menu": "Go to Menu"
   }
 }
