@@ -9,6 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MenuButtonComponent} from "../../components/menu-button/menu-button.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -16,14 +17,15 @@ import {MenuButtonComponent} from "../../components/menu-button/menu-button.comp
     ShapesComponent,
     ShapesResultComponent
   ],
-  imports: [
-    CommonModule,
-    ShapesRoutingModule,
-    DragDropModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDialogModule,
-    MenuButtonComponent,
-  ]
+    imports: [
+        CommonModule,
+        ShapesRoutingModule,
+        DragDropModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDialogModule,
+        MenuButtonComponent,
+        TranslateModule,
+    ]
 })
 export class ShapesModule { }

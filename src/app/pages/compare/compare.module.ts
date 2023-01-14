@@ -8,6 +8,7 @@ import { CompareResultComponent } from './compare-result/compare-result.componen
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -15,13 +16,14 @@ import {MatButtonModule} from "@angular/material/button";
     CompareComponent,
     CompareResultComponent
   ],
-  imports: [
-    CommonModule,
-    CompareRoutingModule,
-    MenuButtonComponent,
-    MatDialogModule,
-    MatIconModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        CompareRoutingModule,
+        MenuButtonComponent,
+        MatDialogModule,
+        MatIconModule,
+        MatButtonModule,
+        TranslateModule
+    ]
 })
 export class CompareModule { }

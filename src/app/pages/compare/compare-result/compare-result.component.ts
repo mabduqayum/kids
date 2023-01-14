@@ -21,15 +21,15 @@ export class CompareResultComponent {
 
   updateMessage(points: number) {
     if (points < .5) {
-      this.message = 'Try next time';
+      this.message = 'next_time';
     } else if (points < .65) {
-      this.message = 'Good';
+      this.message = 'good';
     } else if (points < .75) {
-      this.message = 'Well done';
+      this.message = 'well_done';
     } else if (points < 1) {
-      this.message = 'Excellent';
+      this.message = 'excellent';
     } else {
-      this.message = 'Perfect';
+      this.message = 'perfect';
     }
   }
 }

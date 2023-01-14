@@ -1,19 +1,19 @@
 <ng-container *ngIf="data; else wrongAns">
-  <h1>You did it!</h1>
-  <p>You got it right.</p>
+  <h1>{{"shapes.right.title" | translate}}</h1>
+  <p>{{"shapes.right.paragraph" | translate}}</p>
 </ng-container>
 <ng-template #wrongAns>
-  <h1>Nope!!!</h1>
-  <p>You got at least one wrong.</p>
+  <h1>{{"shapes.wrong.title" | translate}}</h1>
+  <p>{{"shapes.wrong.paragraph" | translate}}</p>
 </ng-template>
 <mat-dialog-actions>
   <button mat-stroked-button color="primary" mat-dialog-close='playAgain'>
     <mat-icon>replay</mat-icon>
-    Play Again
+    {{"shapes.play_again" | translate}}
   </button>
-  <button mat-raised-button color="primary" cdkFocusInitial mat-dialog-close="goToMenu"	>
+  <button mat-raised-button color="primary" cdkFocusInitial mat-dialog-close="goToMenu">
     <mat-icon>arrow_forward</mat-icon>
-    Go to Menu
+    {{"shapes.go_to_menu" | translate}}
   </button>
 </mat-dialog-actions>
 

@@ -19,8 +19,15 @@ export class AppComponent {
     // get browser lang
     const browserLang = translate.getBrowserLang() ?? 'en';
 
+    // get lang from localstorage if available
+    const langInStorage = localStorage.getItem('lang') ?? browserLang;
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use(browserLang);
+    translate.use(langInStorage);
+
+    // update local storage when language changed
+    translate.onLangChange.subscribe((langEvent) => {
+      localStorage.setItem('lang', langEvent.lang);
+    })
   }
 }

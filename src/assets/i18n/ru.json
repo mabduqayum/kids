@@ -1,8 +1,30 @@
 {
-  "MAIN": {
-    "TITLE": "Дети",
-    "SHAPE_SORTING": "Сортировка форм 2d 3d",
-    "NUMBER_COMPARISON": "Сравнение чисел",
-    "COINS_GAME": "Игра монет"
+  "main": {
+    "title": "Дети",
+    "shape_sorting": "Сортировка форм",
+    "number_comparison": "Сравнение чисел",
+    "coins_game": "Игра монет"
+  },
+  "shapes": {
+    "right": {
+      "title": "Ты сделал это!",
+      "paragraph": "Вы правильно поняли."
+    },
+    "wrong": {
+      "title": "Неа!!!",
+      "paragraph": "У тебя как минимум одна ошибка."
+    },
+    "play_again": "Играть снова",
+    "go_to_menu": "Перейти в меню"
+  },
+  "compare": {
+    "compare_numbers": "Сравните числа",
+    "next_time": "Попробуйте в следующий раз",
+    "good": "Хороший",
+    "well_done": "Отличная работа",
+    "excellent": "Отлично",
+    "perfect": "Идеально!",
+    "play_again": "Играть снова",
+    "go_to_menu": "Перейти в меню"
   }
 }
