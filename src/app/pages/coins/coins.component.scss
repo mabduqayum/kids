@@ -14,24 +14,46 @@ main {
   min-width: 1440px;
   height: 100vh;
 
+  h2 {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #BB99DD;
+    margin-left: 50px;
+    width: 500px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 2.5rem;
+    color: #401940;
+    padding: 1rem;
+  }
+
   > img {
     position: absolute;
 
     &.fluffy {
-      top: 37%;
-      left: 31.2%;
+      top: 36%;
+      left: 32%;
+      transform: translateX(-32%);
     }
+
     &.dog {
-      top: 37%;
-      left: 52.5%;
+      top: 39%;
+      left: 63%;
+      transform: translateX(-63%);
     }
-    &.parrot {
-      top: 62%;
-      left: 22.4%;
+
+    &.bird {
+      top: 61%;
+      left: 19.7%;
+      transform: translateX(-19.7%);
     }
+
     &.cat {
-      top: 53%;
-      left: 45%;
+      bottom: 20%;
+      left: 55%;
+      transform: translateX(-55%);
     }
   }
 }
