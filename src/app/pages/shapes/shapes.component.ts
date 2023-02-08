@@ -4,6 +4,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag
 import {MatDialog} from '@angular/material/dialog';
 import {ShapesResultComponent} from "./shapes-result/shapes-result.component";
 import {Router} from "@angular/router";
+import {shuffle} from "../../utils/random";
 
 @Component({
   selector: 'app-shapes',
@@ -29,7 +30,7 @@ export class ShapesComponent implements OnInit {
       {dimension: 3, name: 'cube'},
       {dimension: 3, name: 'prism'},
     ]
-    this.shuffle(this.shapes);
+    shuffle(this.shapes);
   }
 
   ngOnInit(): void {
@@ -76,25 +77,6 @@ export class ShapesComponent implements OnInit {
       }
     });
   }
-
-  private shuffle(array: any[]): any[] {
-    let currentIndex = array.length;
-    let randomIndex;
-
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-    }
-
-    return array;
-  }
-
 
   private playAgain() {
     window.location.reload();

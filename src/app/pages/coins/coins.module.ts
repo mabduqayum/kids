@@ -5,6 +5,7 @@ import { CoinsRoutingModule } from './coins-routing.module';
 import { CoinsComponent } from './coins.component';
 import {MenuButtonComponent} from "../../components/menu-button/menu-button.component";
 import {TranslateModule} from "@ngx-translate/core";
+import {MatRippleModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {TranslateModule} from "@ngx-translate/core";
         CommonModule,
         CoinsRoutingModule,
         MenuButtonComponent,
-        TranslateModule
+        TranslateModule,
+        MatRippleModule
     ]
 })
 export class CoinsModule { }
