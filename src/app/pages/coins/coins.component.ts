@@ -54,10 +54,6 @@ export class CoinsComponent implements OnInit {
   }
 
   private setQuestions(): void {
-    const question1 = 'Choose "diram coin" among all off coins';
-    const question2 = 'Choose "somoni coin" among all off coins';
-    const question3 = 'Choose "biggest coin" among all off coins';
-    const question4 = 'Choose "smallest coin" among all off coins';
     let choices: Coin[];
     let rightChoice: Coin;
     let rightChoiceIndex: number;
@@ -91,11 +87,11 @@ export class CoinsComponent implements OnInit {
       return choices[index];
     }
 
-    const addQuestion = (question: string): void => {
+    const addQuestion = (question: number): void => {
       shuffle(choices);
       rightChoiceIndex = getRightChoiceIndex(choices, rightChoice);
       this.questions.append({
-        question: question,
+        questionI18Index: question,
         choices: choices,
         rightChoiceIndex: rightChoiceIndex
       });
@@ -105,27 +101,27 @@ export class CoinsComponent implements OnInit {
       choices = this.pulho.slice();
       rightChoice = randomChoice(this.tangaho);
       choices.push(rightChoice);
-      addQuestion(question1);
+      addQuestion(1);
     }
 
     for (let i = 0; i < 2; i++) {
       choices = randomSample(this.tangaho, 3);
       rightChoice = randomChoice(this.pulho);
       choices.push(rightChoice);
-      addQuestion(question2);
+      addQuestion(2);
     }
 
 
     for (let i = 0; i < 2; i++) {
       choices = randomSample(this.allCoins, 4);
       rightChoice = biggestCoin(choices);
-      addQuestion(question3);
+      addQuestion(3);
     }
 
     for (let i = 0; i < 2; i++) {
       choices = randomSample(this.allCoins, 4);
       rightChoice = smallestCoin(choices);
-      addQuestion(question4);
+      addQuestion(4);
     }
   }
 

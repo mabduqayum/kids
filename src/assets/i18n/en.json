@@ -26,5 +26,11 @@
     "perfect": "Perfect!",
     "play_again": "Play Again",
     "go_to_menu": "Go to Menu"
+  },
+  "coins": {
+    "question1": "Choose a coin with 'diram' type",
+    "question2": "Choose a coin with 'somoni' type",
+    "question3": "Choose biggest coin by value",
+    "question4": "Choose smallest coin by value"
   }
 }

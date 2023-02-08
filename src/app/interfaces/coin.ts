@@ -5,7 +5,7 @@ export interface Coin {
 
 export interface CoinQuestion {
   choices: Coin[];
-  question: string;
+  questionI18Index: number;
   rightChoiceIndex: number;
   selectedChoiceIndex?: number;
 }
