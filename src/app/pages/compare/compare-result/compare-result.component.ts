@@ -1,5 +1,6 @@
 import {Component, HostListener, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {getMessage} from "../../../utils/get-message";
 
 @Component({
   selector: 'app-compare-result',
@@ -11,25 +12,11 @@ export class CompareResultComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: number,
               private dialogRef: MatDialogRef<CompareResultComponent>) {
-    this.updateMessage(data);
+    this.message = getMessage(data);
   }
 
   @HostListener('window:keyup.esc')
   onKeyUp() {
     this.dialogRef.close();
-  }
-
-  updateMessage(points: number) {
-    if (points < .5) {
-      this.message = 'next_time';
-    } else if (points < .65) {
-      this.message = 'good';
-    } else if (points < .75) {
-      this.message = 'well_done';
-    } else if (points < 1) {
-      this.message = 'excellent';
-    } else {
-      this.message = 'perfect';
-    }
   }
 }

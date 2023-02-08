@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {randomChoice, randomSample, shuffle} from "../../utils/random";
 import {Coin, CoinQuestion} from "../../interfaces/coin";
 import {LinkedList, LLNode} from "../../classes/linked-list";
+import {CompareResultComponent} from "../compare/compare-result/compare-result.component";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-coins',
@@ -17,13 +20,24 @@ export class CoinsComponent implements OnInit {
   private questions: LinkedList<CoinQuestion> = new LinkedList<CoinQuestion>();
   private tangaho: Coin[] = [];
 
-  constructor() {
+  constructor(public dialog: MatDialog,
+              public router: Router) {
     this.setAllCoins();
     this.setQuestions();
     this.currentQuestion = this.questions.head!;
   }
 
   ngOnInit(): void {
+  }
+
+
+  onAnswerClick(index: number) {
+    this.currentQuestion.value.selectedChoiceIndex = index;
+    if (!this.currentQuestion.next) {
+      this.calculateResult();
+      return;
+    }
+    this.currentQuestion = this.currentQuestion.next!;
   }
 
   private setAllCoins(): void {
@@ -115,11 +129,38 @@ export class CoinsComponent implements OnInit {
     }
   }
 
-  onAnswerClick(index: number) {
-    this.currentQuestion.value.selectedChoiceIndex = index;
-    if (!this.currentQuestion.next) {
-      return;
+  private calculateResult() {
+    let rez = 0;
+    const maxRez = 8;
+    let questionSample = this.questions.head;
+    while (questionSample?.value) {
+      if (questionSample.value.selectedChoiceIndex === questionSample.value.rightChoiceIndex) {
+        rez++;
+      }
+      questionSample = questionSample.next;
     }
-    this.currentQuestion = this.currentQuestion.next!;
+    this.openDialog(rez / maxRez);
+  }
+
+  private openDialog(points: number): void {
+    const dialogRef = this.dialog.open(CompareResultComponent,
+      {data: points, width: '600px', disableClose: true});
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'playAgain') {
+        this.playAgain();
+      } else if (result === 'goToMenu') {
+        this.goToMenu();
+      }
+    });
+  }
+
+  private goToMenu(): void {
+    this.router.navigate(['/'],).then(() => {
+    });
+  }
+
+  private playAgain(): void {
+    window.location.reload();
   }
 }

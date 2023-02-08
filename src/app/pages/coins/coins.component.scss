@@ -29,8 +29,11 @@ main {
     padding: 1rem;
   }
 
-  > img {
+  button {
     position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent;
 
     &.fluffy {
       top: 36%;
@@ -56,8 +59,4 @@ main {
       transform: translateX(-55%);
     }
   }
-}
-
-mat-ripple {
-  background-color: rgba(255, 255, 255, 0.1) !important;
 }

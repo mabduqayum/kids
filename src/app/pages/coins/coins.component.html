@@ -2,9 +2,12 @@
 
 <main>
   <h2 mat-ripple>{{currentQuestion.value.question}}</h2>
-  <img *ngFor="let fisher of fishers; index as i;"
-       [ngClass]="fisher"
-       src="assets/coins/{{currentQuestion.value.choices[i].src}}.png" alt=""
-       (click)="onAnswerClick(i)"
-  >
+  <button *ngFor="let fisher of fishers; index as i;"
+          [ngClass]="fisher"
+          mat-ripple>
+    <img
+      src="assets/coins/{{currentQuestion.value.choices[i].src}}.png" alt=""
+      (click)="onAnswerClick(i)"
+    />
+  </button>
 </main>

@@ -1,0 +1,13 @@
+<h1>{{data | percent}}</h1>
+<p>{{"compare." + message | translate}}</p>
+<mat-dialog-actions>
+  <button mat-stroked-button color="primary" mat-dialog-close='playAgain'>
+    <mat-icon>replay</mat-icon>
+    {{"compare.play_again" | translate}}
+  </button>
+  <button mat-raised-button color="primary" cdkFocusInitial mat-dialog-close="goToMenu">
+    <mat-icon>arrow_forward</mat-icon>
+    {{"compare.go_to_menu" | translate}}
+  </button>
+</mat-dialog-actions>
+
