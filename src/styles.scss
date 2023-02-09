@@ -1,4 +1,5 @@
 @import "src/styles/vars";
+@import "src/styles/theme";
 
 * {
   padding: 0;
@@ -11,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
@@ -21,12 +26,14 @@ html {
 }
 
 body {
+  margin: 0;
   min-height: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   //overflow-x: hidden;
 }
 
 img {
+  user-select: none;
   max-width: 100%;
 }
 
@@ -46,17 +53,4 @@ a:active {
 :target {
   outline: 5px red;
   outline-offset: 5px;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-img {
-  user-select: none;
 }
