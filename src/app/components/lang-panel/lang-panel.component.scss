@@ -2,8 +2,8 @@
   z-index: 2;
   position: fixed;
   margin: 1rem;
-  top: 0;
-  right: 0;
+  top: max(0px, (100vh - 1024px) / 2);
+  right: max(0px, (100vw - 1440px) / 2);
 }
 
 .activeMenuItem {

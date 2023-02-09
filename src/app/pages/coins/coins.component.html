@@ -1,7 +1,7 @@
 <app-menu-button></app-menu-button>
 
 <main>
-  <h2 mat-ripple>{{'coins.question' + currentQuestion.value.questionI18Index | translate}}</h2>
+  <h2>{{'coins.question' + currentQuestion.value.questionI18Index | translate}}</h2>
   <button *ngFor="let fisher of fishers; index as i;"
           [ngClass]="fisher"
           mat-ripple>

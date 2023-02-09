@@ -3,6 +3,7 @@
   height: auto;
   display: flex;
   justify-content: center;
+  background-color: var(--main-bg);
 }
 
 main {
@@ -21,7 +22,7 @@ main {
     transform: translateX(-50%);
     background-color: #BB99DD;
     margin-left: 50px;
-    width: 500px;
+    width: 400px;
     text-align: center;
     border-radius: 8px;
     font-size: 2.5rem;
@@ -37,26 +38,26 @@ main {
 
     &.fluffy {
       top: 36%;
-      left: 32%;
-      transform: translateX(-32%);
+      left: 36.2%;
+      transform: translateX(-36.2%);
     }
 
     &.dog {
       top: 39%;
-      left: 62%;
-      transform: translateX(-62%);
+      left: 59.5%;
+      transform: translateX(-59.5%);
     }
 
     &.bird {
       top: 61%;
-      left: 20%;
-      transform: translateX(-20%);
+      left: 27%;
+      transform: translateX(-27%);
     }
 
     &.cat {
       bottom: 22%;
-      left: 55%;
-      transform: translateX(-55%);
+      left: 54%;
+      transform: translateX(-54%);
     }
   }
 }
